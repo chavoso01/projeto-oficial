@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+
+{% block corpo %}
+<table class="responsive-table striped centered">
+
+	<thead> 
+		<tr>
+			<th data-field="processo">Nome</th>
+			<th data-field="processo">Bloco</th>
+			<th data-field="processo">Número</th>
+			<th data-field="processo" colspan="2">Ações</th>
+		</tr>
+
+		
+	</thead>
+
+	<tbody>
+		{% for s in salas %}
+
+		<tr>
+			<td>{{s.nome}}</td>
+			<td>{{s.bloco}}</td>
+			<td>{{s.numero}}</td>
+			<td><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Detalhar</a></td>
+			<td><a class="waves-effect waves-light btn">Reservar</a></td>
+		</tr>
+		
+		<div id="modal1" class="modal">
+    		<div class="modal-content">
+	    		<div class="row">
+		      		<h4>Detalhes</h4>
+		      		<p class="c">Nome: {{s.nome}}</p>
+		      		<p>Bloco: {{s.bloco}}</p>
+		      		<p>Número: {{s.numero}}</p>
+		      		<div class="col s12 m4 center">
+		      			<h5>Manhã</h5>
+		      			<p>{{p.h1_Matutino}}</p>
+		      		</div>
+
+		      		<div class="col s12 m4 center">
+		      			<h5>Tarde</h5>
+		      			<p>07:00 - 07:45: {{s.h1_Matutino}}</p>
+		      			
+		      		</div>
+
+		      		<div class="col s12 m4 center">
+		      			<h5>Noite</h5>
+		      			<p>{{p.h1_Matutino}}</p>
+		      		</div>
+	    		</div>
+	    		<div class="modal-footer">
+	      			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+	    		</div>
+	    	</div>
+	    </div>
+
+
+		{% endfor %}
+	</tbody>
+
+</table>
+<script type="text/javascript">$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+ </script>
+
+{% endblock %}

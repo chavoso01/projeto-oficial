@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block corpo %}
+<table class="responsive-table striped">
+
+	<thead> 
+		<tr>
+			<th data-field="processo">Nome</th>
+			<th data-field="processo">localização</th>
+			<th data-field="processo">Número</th>
+		</tr>
+
+		
+	</thead>
+
+	<tbody>
+		{% for m in material %}
+		<tr>
+			<td>{{m.nome}}</td>
+			<td>{{m.localizacao}}</td>
+			<td>{{m.numero}}</td>
+			<td><button class="btn waves-effect waves-teal desabled">Detalhar</button></td>
+			<td><button class="btn waves-effect waves-teal desabled">Reservar</button></td>
+			
+		</tr>
+		{% endfor %}
+	</tbody>
+
+</table>
+{% endblock %}
